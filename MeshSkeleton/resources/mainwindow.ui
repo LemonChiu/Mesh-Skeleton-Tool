@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainwindowClass</class>
+ <widget class="QMainWindow" name="mainwindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>679</width>
+    <height>639</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mesh Skeleton Tool</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="mainwindow.qrc">
+    <normaloff>:/mainwindow/main.png</normaloff>:/mainwindow/main.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>679</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuRecent_Models">
+     <property name="title">
+      <string>Recent Models</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuRecent_Skeletons">
+     <property name="title">
+      <string>Recent Skeletons</string>
+     </property>
+    </widget>
+    <addaction name="actionOpen_Model"/>
+    <addaction name="actionOpen_Skeleton"/>
+    <addaction name="actionSave_Skeleton"/>
+    <addaction name="separator"/>
+    <addaction name="menuRecent_Models"/>
+    <addaction name="menuRecent_Skeletons"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuRender">
+    <property name="title">
+     <string>Render</string>
+    </property>
+    <addaction name="actionPointsMode"/>
+    <addaction name="actionFrontLinesMode"/>
+    <addaction name="actionAllLinesMode"/>
+    <addaction name="actionSurfaceMode"/>
+    <addaction name="actionBackground"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuRender"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string>MainToolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen_Model"/>
+   <addaction name="actionOpen_Skeleton"/>
+   <addaction name="actionSave_Skeleton"/>
+   <addaction name="separator"/>
+   <addaction name="actionReset"/>
+   <addaction name="actionPointsMode"/>
+   <addaction name="actionFrontLinesMode"/>
+   <addaction name="actionAllLinesMode"/>
+   <addaction name="actionSurfaceMode"/>
+   <addaction name="actionBackground"/>
+   <addaction name="separator"/>
+   <addaction name="actionAbout"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>168</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string>Operation</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QGroupBox" name="editGroupBox">
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Edit</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QRadioButton" name="sceneManipulationRadioButton">
+          <property name="toolTip">
+           <string>Shift+C</string>
+          </property>
+          <property name="text">
+           <string>Scene Control</string>
+          </property>
+          <property name="shortcut">
+           <string>Shift+C</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="addNodeRadioButton">
+          <property name="toolTip">
+           <string>Ctrl+N</string>
+          </property>
+          <property name="text">
+           <string>Add a Node</string>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+N</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="deleteNodeRadioButton">
+          <property name="toolTip">
+           <string>Shift+N</string>
+          </property>
+          <property name="text">
+           <string>Delete a Node</string>
+          </property>
+          <property name="shortcut">
+           <string>Shift+N</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="addBoneRadioButton">
+          <property name="toolTip">
+           <string>Ctrl+B</string>
+          </property>
+          <property name="text">
+           <string>Add a Bone</string>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="deleteBoneRadioButton">
+          <property name="toolTip">
+           <string>Shift+B</string>
+          </property>
+          <property name="text">
+           <string>Delete a Bone</string>
+          </property>
+          <property name="shortcut">
+           <string>Shift+B</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="viewGroupBox">
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>View</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QFormLayout" name="formLayout_3">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="sizeLabel">
+            <property name="text">
+             <string>Size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="widthSpinBox">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>20</number>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="radiusLabel">
+            <property name="text">
+             <string>Radius</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDoubleSpinBox" name="raduisDoubleSpinBox">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.001000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.012000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="redLabel">
+            <property name="text">
+             <string>Red:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDoubleSpinBox" name="redDoubleSpinBox">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.600000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="greenLabel">
+            <property name="text">
+             <string>Green:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDoubleSpinBox" name="greenDoubleSpinBox">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.600000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="blueLabel">
+            <property name="text">
+             <string>Blue:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QDoubleSpinBox" name="blueDoubleSpinBox">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.600000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="showModelCheckBox">
+          <property name="text">
+           <string>Show Model</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="showSkeletonCheckBox">
+          <property name="text">
+           <string>Show Skeleton</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="showNodeCheckBox">
+          <property name="text">
+           <string>Show Nodes</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="showAxisCheckBox">
+          <property name="text">
+           <string>Show Axis</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="showNormalCheckBox">
+          <property name="text">
+           <string>Show Normals</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="algorithmGroupBox">
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Algorithm</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QRadioButton" name="centerModeRadioButton">
+          <property name="text">
+           <string>center</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+  </widget>
+  <action name="actionOpen_Model">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/openmodel.png</normaloff>:/mainwindow/openmodel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Model</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+M</string>
+   </property>
+  </action>
+  <action name="actionOpen_Skeleton">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/openskeleton.png</normaloff>:/mainwindow/openskeleton.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Skeleton</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+S</string>
+   </property>
+  </action>
+  <action name="actionSave_Skeleton">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/saveskeleton.png</normaloff>:/mainwindow/saveskeleton.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Skeleton</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/refresh.png</normaloff>:/mainwindow/refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionFrontLinesMode">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/frontlines.png</normaloff>:/mainwindow/frontlines.png</iconset>
+   </property>
+   <property name="text">
+    <string>Front Lines</string>
+   </property>
+  </action>
+  <action name="actionPointsMode">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/points.png</normaloff>:/mainwindow/points.png</iconset>
+   </property>
+   <property name="text">
+    <string>Points</string>
+   </property>
+  </action>
+  <action name="actionAllLinesMode">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/alllines.png</normaloff>:/mainwindow/alllines.png</iconset>
+   </property>
+   <property name="text">
+    <string>All Lines</string>
+   </property>
+  </action>
+  <action name="actionSurfaceMode">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/surface.png</normaloff>:/mainwindow/surface.png</iconset>
+   </property>
+   <property name="text">
+    <string>Surface</string>
+   </property>
+  </action>
+  <action name="actionBackground">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/background.png</normaloff>:/mainwindow/background.png</iconset>
+   </property>
+   <property name="text">
+    <string>Background</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/about.png</normaloff>:/mainwindow/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/mainwindow/exit.png</normaloff>:/mainwindow/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="mainwindow.qrc"/>
+ </resources>
+ <connections/>
+</ui>

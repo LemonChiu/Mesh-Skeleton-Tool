@@ -1,0 +1,32 @@
+1.功能：这个程序主要用来交互式从三维模型中提取骨架。
+
+2.依赖库
+BOOST,QT,CGAL,GLUT以及QGLViewer;其中GLUT以及QGLViewer相关的依赖文件(64位版本)已放在了3rdParty文件中，不需要重新安装；但BOOST,CGAL,CGAL需要自己安装。
+建议安装顺序：BOOST、QT、CGAL。
+
+BOOST：
+1）源代码从这里下：http://www.boost.org/
+2）具体搜索网上编译步骤
+3）编译完成后，添加系统变量 BOOST_ROOT
+QT：可以直接到网站上下载预编译的版本（32位）或自己编译（64位）
+CGAL: 参考CGAL的官网说明：http://acg.cs.tau.ac.il/cgal-at-tau/installing-cgal-and-related-programs-on-windows
+
+3. 编译
+用cmake编译
+- Open CMake (cmake-gui, can be found on the desktop) - (for win7 users, use "Run as admin")
+ - Choose "Where is the source code:" - 这个文件所在的文件夹 （DIR）
+ - Choose "Where to build the binaries:" - 任意设置一个文件夹 （建议DIR_Build）
+ - Click Configure
+ - Click Generate
+如果顺利的话，应该生成sln文件. 在sln文件中将Skeleton_Based_Deformation设成 startup project.然后就可以运行了
+
+
+
+
+
+
+
+
+
+
+

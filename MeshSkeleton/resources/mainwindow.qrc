@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/mainwindow">
+        <file>main.png</file>
+        <file>openmodel.png</file>
+        <file>openskeleton.png</file>
+        <file>saveskeleton.png</file>
+        <file>exit.png</file>
+        <file>about.png</file>
+        <file>points.png</file>
+        <file>frontlines.png</file>
+        <file>alllines.png</file>
+        <file>surface.png</file>
+        <file>background.png</file>
+        <file>refresh.png</file>
+    </qresource>
+</RCC>
