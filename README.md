@@ -25,4 +25,4 @@ The x64 version of GLUT and QGLViewer are already in 3rdParty folder. However, B
 + Both model and skeleton files can be drag into the window to load.
 
 ### License
-Licensed under The [GNU GPL v2.0](https://github.com/LemonChiu/Mesh-Skeleton-Tool/master/LICENSE) License
+Licensed under The [GNU GPL v2.0](https://github.com/LemonChiu/Mesh-Skeleton-Tool/blob/master/LICENSE) License
