@@ -23,3 +23,6 @@ The x64 version of GLUT and QGLViewer are already in 3rdParty folder. However, B
 + The tool supports .obj and .ply model files.
 + The original .cg files are easy to read and store the skeleton data. 
 + Both model and skeleton files can be drag into the window to load.
+
+### License
+Licensed under The [GNU GPL v2.0](https://github.com/LemonChiu/Mesh-Skeleton-Tool/master/LICENSE) License
