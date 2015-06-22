@@ -4,34 +4,34 @@
 class Object;
 class Skeleton;
 
-class  Model
+class Model
 {
 public:
-	Model(Object *obj);
-	Model(Object *obj, Skeleton *skl);
-	~Model();
+    Model(Object *obj);
+    Model(Object *obj, Skeleton *skl);
+    ~Model();
 
-	Object *getObj()
+    Object *getObj()
     {
         return m_object;
     }
-	const Object *getObj() const
+    const Object *getObj() const
     {
         return m_object;
     }
-	Skeleton *getSkl()
+    Skeleton *getSkl()
     {
         return m_skl;
     }
-	const Skeleton *getSkl()  const
+    const Skeleton *getSkl()  const
     {
         return m_skl ;
     }
-	void draw() const;
+    void draw() const;
 
 private:
-	Object *m_object;
-	Skeleton *m_skl;
-	IntAttribute object_skl_corr_;
-	ColorMap colors_;
+    Object *m_object;
+    Skeleton *m_skl;
+    IntAttribute object_skl_corr_;
+    ColorMap colors_;
 };

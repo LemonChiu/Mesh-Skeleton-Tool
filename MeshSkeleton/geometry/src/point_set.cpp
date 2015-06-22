@@ -8,57 +8,57 @@ PointSet::PointSet(const std::string &name)
 
 PointSet::~PointSet()
 {
-	clear();
+    clear();
 }
 
 void PointSet::clear()
 {
-	Object::clear();	
-}  
+    Object::clear();
+}
 
 //20000 points at most
 void PointSet::draw(bool realcolor /* = true*/,
-					Colorf &c /*= Colorf(1.0f, 1.0f, 1.0f) */,
-					bool fast /* = true */, 
-					unsigned int max_num /* = 20000 */) const
+                    Colorf &c /*= Colorf(1.0f, 1.0f, 1.0f) */,
+                    bool fast /* = true */,
+                    unsigned int max_num /* = 20000 */) const
 {
 #ifdef _DEBUG
-	max_num = max_num / 4;
+    max_num = max_num / 4;
 #endif
 
-	draw_whole_pointset(realcolor, c, fast, max_num);	
+    draw_whole_pointset(realcolor, c, fast, max_num);
 }
 
 //5000000 points at most
 void PointSet::draw_whole_pointset(bool realcolor /* = true*/,
-								   Colorf &c /*= Colorf(1.0f, 1.0f, 1.0f) */,
-								   bool fast /* = true */, 
-								   unsigned int max_num /* = 500000 */) const
-{   
+                                   Colorf &c /*= Colorf(1.0f, 1.0f, 1.0f) */,
+                                   bool fast /* = true */,
+                                   unsigned int max_num /* = 500000 */) const
+{
     glDisable(GL_LIGHTING);
-	glPointSize(global::g_fPointSize);
-	unsigned int num = vertices_.size();
-	unsigned int partial = 0;
-	glBegin(GL_POINTS);
-	if (fast && num > max_num) {
-		partial = num / max_num;
+    glPointSize(global::g_fPointSize);
+    unsigned int num = vertices_.size();
+    unsigned int partial = 0;
+    glBegin(GL_POINTS);
+    if (fast && num > max_num) {
+        partial = num / max_num;
     } else {
-		partial = 1;
+        partial = 1;
     }
 
     c = Colorf(global::g_meshColor.r(),global::g_meshColor.g(),global::g_meshColor.b());
     // set if the pointset color is the original
-	if (global::g_bPointsRealColor) {
-		for (unsigned int i=0; i<num; i+= partial) {
-			vertices_[i]->draw();
-		}
-	} else {
-		for(unsigned int i = 0; i < num; i += partial) {
-			//use custom color
+    if (global::g_bPointsRealColor) {
+        for (unsigned int i=0; i<num; i+= partial) {
+            vertices_[i]->draw();
+        }
+    } else {
+        for(unsigned int i = 0; i < num; i += partial) {
+            //use custom color
             vertices_[i]->draw(c);
-		}
-	}
-	glEnd();
+        }
+    }
+    glEnd();
 
     //display normal
     if (global::g_bShowNormal) {
@@ -76,5 +76,5 @@ void PointSet::draw_whole_pointset(bool realcolor /* = true*/,
         glEnd();
     }
 
-	glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHTING);
 }

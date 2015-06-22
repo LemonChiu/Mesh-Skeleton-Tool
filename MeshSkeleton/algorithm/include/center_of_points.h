@@ -6,10 +6,9 @@ class Vertex;
 class  PointsCenter
 {
 public:
-	PointsCenter() {}
-	~PointsCenter() {}
+    PointsCenter() {}
+    ~PointsCenter() {}
 
-	static std::string title() { return "[PointsCenter]: "; }
-	Point3d apply_center(const std::vector<Vertex*> &points);
-
+    static std::string title() { return "[PointsCenter]: "; }
+    Point3d apply_center(const std::vector<Vertex*> &points);
 };

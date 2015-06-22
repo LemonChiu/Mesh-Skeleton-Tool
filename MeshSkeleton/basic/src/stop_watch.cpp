@@ -3,64 +3,60 @@
 #include <iostream>
 
 /**
-/*  purpose: 计时器
+/*  purpose: Timer
 */
 
 Stopwatch::Stopwatch() {
-	start();
+    start();
 }
 
 Stopwatch::~Stopwatch() {}
 
-//记录开始时间
 void Stopwatch::start()
 {
 #ifdef WIN32
-	LARGE_INTEGER  largeInteger;
-	QueryPerformanceFrequency(&largeInteger);
-	freq_ = largeInteger.QuadPart;
-	QueryPerformanceCounter(&largeInteger);
-	start_count_ = largeInteger.QuadPart;
+    LARGE_INTEGER  largeInteger;
+    QueryPerformanceFrequency(&largeInteger);
+    freq_ = largeInteger.QuadPart;
+    QueryPerformanceCounter(&largeInteger);
+    start_count_ = largeInteger.QuadPart;
 #else
-	gettimeofday(&start_time_, 0);
+    gettimeofday(&start_time_, 0);
 #endif // WIN32
 }
 
-//计算经历的时间
 double Stopwatch::elapsed_user_time() const
 {
 #ifdef WIN32
-	LARGE_INTEGER  largeInteger;
-	QueryPerformanceCounter(&largeInteger);
-	LONGLONG now_count = largeInteger.QuadPart;
+    LARGE_INTEGER  largeInteger;
+    QueryPerformanceCounter(&largeInteger);
+    LONGLONG now_count = largeInteger.QuadPart;
 
-	double time = (now_count - start_count_) / static_cast<double>(freq_); 
-	return static_cast<int>(time * 1000) / 1000.0;
+    double time = (now_count - start_count_) / static_cast<double>(freq_);
+    return static_cast<int>(time * 1000) / 1000.0;
 #else
-	timeval now;
-	gettimeofday(&now, 0);
-	return (now.tv_sec - start_time_.tv_sec) + 
-		(now.tv_usec - start_time_.tv_usec) / 1.0e6;
+    timeval now;
+    gettimeofday(&now, 0);
+    return (now.tv_sec - start_time_.tv_sec) +
+        (now.tv_usec - start_time_.tv_usec) / 1.0e6;
 #endif  // WIN32
 }
 
-//记录结束时间
 double Stopwatch::now()
 {
 #ifdef WIN32
-	return double(GetTickCount()) / 1000.0 ;
+    return double(GetTickCount()) / 1000.0 ;
 #else
-	clock_t end_user ;
-	tms now_tms ;
-	return double(times(&now_tms)) / 100.0 ;
+    clock_t end_user ;
+    tms now_tms ;
+    return double(times(&now_tms)) / 100.0 ;
 #endif
 }
 
-//打印时间
 void Stopwatch::print()
 {
-	std::cout
-		<< "Timing: " 
-		<< elapsed_user_time() 
-		<< " seconds" << std::endl ; 
+    std::cout
+        << "Timing: "
+        << elapsed_user_time()
+        << " seconds" << std::endl ;
 }

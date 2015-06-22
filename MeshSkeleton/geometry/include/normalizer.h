@@ -12,34 +12,34 @@ class Object;
 
 class  Normalizer
 {
-public: 
-	Normalizer() 
-		: orig_radius_(0.0f)
-		, orig_center_(0.0f, 0.0f, 0.0f)
-		, normalized_radius_(1.0f)
-	{
-	}
+public:
+    Normalizer()
+        : orig_radius_(0.0f)
+        , orig_center_(0.0f, 0.0f, 0.0f)
+        , normalized_radius_(1.0f)
+    {
+    }
 
-	~Normalizer() {}
+    ~Normalizer() {}
 
-	static std::string title()
+    static std::string title()
     {
         return "[Normalizer]: ";
     }
 
-	void apply(Object *point_set, float r = 1.0f);
-	void apply_by_old_parameter(Skeleton *skeleton);
-	void apply_by_old_parameter(Object *point_set);
-	
-	inline Point3d restore(const Point3d &p)
+    void apply(Object *point_set, float r = 1.0f);
+    void apply_by_old_parameter(Skeleton *skeleton);
+    void apply_by_old_parameter(Object *point_set);
+
+    inline Point3d restore(const Point3d &p)
     {
-		Vector3d v = p - CGAL::ORIGIN;
-		v = (orig_radius_ / normalized_radius_) * v;
-		return (orig_center_ + v);
-	}	
+        Vector3d v = p - CGAL::ORIGIN;
+        v = (orig_radius_ / normalized_radius_) * v;
+        return (orig_center_ + v);
+    }
 
 private:
-	float   orig_radius_;
-	Point3d orig_center_;
-	float   normalized_radius_;
+    float orig_radius_;
+    Point3d orig_center_;
+    float normalized_radius_;
 } ;

@@ -2,7 +2,7 @@
 #define _GEOMETRY_TYPES_H_
 
 /**
-*	purpose: wrapper of CGAL types
+*   purpose: wrapper of CGAL types
 */
 
 #include <CGAL/Cartesian.h>
@@ -36,7 +36,7 @@ typedef DK::Plane_3          Plane3d;
 typedef CGAL::Bbox_3         Bbox3d;
 typedef DK::Iso_cuboid_3     Cuboid3d;
 typedef DK::Sphere_3         Sphere3d;
-typedef DK::Tetrahedron_3    Tetrahedron3d; 
+typedef DK::Tetrahedron_3    Tetrahedron3d;
 
 typedef DK::Aff_transformation_3  AffTransformation3d;
 

@@ -12,12 +12,12 @@ This utility which based on Qt provides interactive contorl to generate mesh ske
 The x64 version of GLUT and QGLViewer are already in 3rdParty folder. However, BOOST, QT and CGAL still need to be installed separately. This project(x64) has been built successfuly under Visual Studio 2012 with QT4.8.4, Boost 1.53, CGAL4.1 and QGLViewer2.3.17.
 
 ### Compile
-+ Open CMake(cmake-gui).
-+ Choose "Where is the source code:".
-+ Choose "Where to build the binaries:".
-+ Click Configure. You will be asked to create the directory (yes), then for your VS version.
-+ Click Generate. A VS solution will in the generated build folder.
-+ In Visual Studio click on the MeshSkeleton project in the solution explorer, select "Set as StartUp Project" and build.
+1. Open CMake(cmake-gui).
+2. Choose "Where is the source code:".
+3. Choose "Where to build the binaries:".
+4. Click Configure. You will be asked to create the directory (yes), then for your VS version.
+5. Click Generate. A VS solution will in the generated build folder.
+6. In Visual Studio click on the MeshSkeleton project in the solution explorer, select "Set as StartUp Project" and build.
  
 ### Usage
 + The tool supports .obj and .ply model files.
