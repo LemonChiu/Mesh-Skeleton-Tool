@@ -1,7 +1,7 @@
 # Mesh Skeleton Tool
 This utility which based on Qt provides interactive contorl to generate mesh skeleton manually. It's part of my undergraduate graduation project "Skeleton-based Deformation".
 
-！[Overview Screenshot](https://raw.githubusercontent.com/LemonChiu/Mesh-Skeleton-Tool/master/screenshot/screenshot.jpg)
+![Overview Screenshot](https://raw.githubusercontent.com/LemonChiu/Mesh-Skeleton-Tool/master/screenshot/screenshot.jpg)
 
 ### Dependency
 + BOOST
