@@ -1,8 +1,9 @@
 # Mesh Skeleton Tool
 This utility which based on Qt provides interactive contorl to generate mesh skeleton manually. It's part of my undergraduate graduation project "Skeleton-based Deformation".
-<img src="https://raw.githubusercontent.com/LemonChiu/Mesh-Skeleton-Tool/master/screenshot/screenshot.jpg" align="left" width="800">
 
-### Dependency 
+！[Overview Screenshot](https://raw.githubusercontent.com/LemonChiu/Mesh-Skeleton-Tool/master/screenshot/screenshot.jpg)
+
+### Dependency
 + BOOST
 + QT
 + CGAL
@@ -18,10 +19,10 @@ The x64 version of GLUT and QGLViewer are already in 3rdParty folder. However, B
 4. Click Configure. You will be asked to create the directory (yes), then for your VS version.
 5. Click Generate. A VS solution will in the generated build folder.
 6. In Visual Studio click on the MeshSkeleton project in the solution explorer, select "Set as StartUp Project" and build.
- 
+
 ### Usage
 + The tool supports .obj and .ply model files.
-+ The original .cg files are easy to read and store the skeleton data. 
++ The original .cg files are easy to read and store the skeleton data.
 + Both model and skeleton files can be drag into the window to load.
 
 ### License
